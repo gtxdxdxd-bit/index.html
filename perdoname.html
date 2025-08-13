@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Perdóname 😅</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      margin-top: 80px;
+      background-color: #fff3e0;
+    }
+    h1 {
+      color: #ff6f61;
+    }
+    button {
+      font-size: 20px;
+      padding: 12px 30px;
+      margin: 15px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+    #si {
+      background-color: #4CAF50;
+      color: white;
+    }
+    #no {
+      background-color: #f44336;
+      color: white;
+    }
+    #mensaje {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>¿Me perdonas? 😅</h1>
+  <div id="mensaje">Perdóname por todo… sé que la regué 😔</div>
+  <button id="si">Sí</button>
+  <button id="no">No</button>
+
+  <script>
+    const botonSi = document.getElementById('si');
+    const botonNo = document.getElementById('no');
+    const mensaje = document.getElementById('mensaje');
+
+    const frases = [
+      "Perdóname, en serio lo siento 😢",
+      "No lo vuelvo a hacer, prometo mejorar 🙏",
+      "Disculpame de verdad 😔",
+      "Sé que la regué, por favor perdóname 😅",
+      "Te prometo que no volverá a pasar 😭",
+      "Por favor, dame otra oportunidad 😬"
+    ];
+
+    botonNo.addEventListener('click', () => {
+      let fraseRandom = frases[Math.floor(Math.random() * frases.length)];
+      mensaje.textContent = fraseRandom;
+
+      let currentSize = parseInt(window.getComputedStyle(botonSi).fontSize);
+      botonSi.style.fontSize = (currentSize + 5) + 'px';
+
+      let randomX = Math.floor(Math.random() * 120) - 60; 
+      let randomY = Math.floor(Math.random() * 60) - 30;
+      botonSi.style.transform = `translate(${randomX}px, ${randomY}px)`;
+
+      botonSi.style.transition = "all 0.3s ease";
+    });
+
+    botonSi.addEventListener('click', () => {
+      mensaje.textContent = "¡Gracias por perdonarme! ❤️ Prometo mejorar 😅";
+      alert("¡Gracias por perdonarme! ❤️");
+    });
+  </script>
+</body>
+</html>
